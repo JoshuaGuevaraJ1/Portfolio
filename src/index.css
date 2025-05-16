@@ -3,3 +3,91 @@
 @source "../.flowbite-react/class-list.json";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  @keyframes float {
+    0% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-500px) scale(3);
+    }
+    100% {
+      transform: translateY(0px) scale(1);
+    }
+  }
+  .animate-float {
+      animation: float 6s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+  
+  html {
+    font-family: "Nunito", sans-serif;
+    scroll-behavior: smooth;
+    
+  }
+
+  h1 {
+    @apply font-bold lg:text-9xl text-7xl text-gray-900 dark:text-gray-100 leading-[0.7] drop-shadow-2xl;
+  }
+  
+  h2:not(.no-apply) {
+    @apply font-bold lg:text-4xl text-2xl text-gray-800 dark:text-gray-200 text-center;
+  }
+  
+  
+  h5:not(.no-apply) {
+    @apply font-semibold italic text-xl text-gray-700 dark:text-gray-300;
+  }
+  
+  h6:not(.no-apply) {
+    @apply font-semibold text-lg text-gray-700 dark:text-gray-300;
+  }
+  
+  p {
+    @apply text-gray-700 dark:text-gray-300 ;
+  }
+
+  /* Estilo general para la barra de desplazamiento */
+  ::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+    height: 10px; /* Altura de la barra de desplazamiento horizontal */
+  }
+
+  /* Estilo para la "pista" de la barra de desplazamiento */
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-200; /* Color de la pista */
+  }
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-gray-800; /* Color de la pista */
+    border-radius: 20px; /* Bordes redondeados */
+  }
+
+  /* Estilo para el "pulgar" (la parte que puedes arrastrar) */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300; /* Color del pulgar */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700; /* Color del pulgar */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+
+  /* Estilo cuando el pulgar está en hover (cuando pasas el ratón sobre él) */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 /* Color al pasar el ratón */
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600 /* Color al pasar el ratón */
+  }
+
+}
+
+@theme {
+  --font-fira-code: 'Fira Code', monospace;
+}
