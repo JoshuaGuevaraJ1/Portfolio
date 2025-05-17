@@ -8,7 +8,7 @@ import { GitSocialIcon, InstagramIcon } from "../icons/Icons";
 export const FooterPage: React.FC = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <Footer container className="mt-10">
+        <Footer container className="mt-10 mx-2 md:mx-8">
             <div className="w-full">
                 <div className="grid w-full justify-between sm:flex sm:justify-center md:flex md:grid-cols-1">
                 <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

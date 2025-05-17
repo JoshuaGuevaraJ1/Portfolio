@@ -10,43 +10,44 @@ import Project1img from '../assets/SistemaEscolar.png';
 import Project2img from '../assets/GanaderiaSoft.png';
 import Project3img from '../assets/GanaderiaSoftDjangoReact.png';
 
+// Projects data
+const projects = [
+    {
+        title: "Sistema de Control Escolar",
+        description: "Primer proyecto de CRUD de un sistema de control escolar desarrollado en Php, diseño neumorfístico y MySQL como Base de Datos.",
+        image: Project1img,
+        technologies: [{
+            name: "Php", icon: <PhpIcon height={20} width={20} />}, 
+            {name: "MySQL", icon: <MySQLIcon height={20} width={20} />}
+        ],
+        date: "Enero 2023 - Junio 2023"
+    },
+    {
+        title: "GanaderíaSoft",
+        description: "Gestión y control de ganado a través de un aretado con tecnología RFID.",
+        image: Project2img,
+        technologies: [
+            {name: "Django", icon: <DJangoIcon height={20} width={20} />}, 
+            {name: "Bootstrap", icon: <BootstrapIcon height={20} width={20} />}
+        ],
+        date: "Agosto 2023 - Diciembre 2023"
+    },
+    {
+        title: "GanaderíaSoft Django React",
+        description: "Un proyecto personal basado en mejorar a GanaderiaSoft implementando Django como Backend y React como Frontend, además de implementar Axios para la comunicación con la API.",
+        image: Project3img,
+        technologies: [
+            {name: "Django", icon: <DJangoIcon height={20} width={20} />}, 
+            {name: "React", icon: <ReactIcon height={20} width={20} />}, 
+            {name: "TailwindCSS", icon: <TailwindCSSIcon height={20} width={20} />}, 
+            {name: "Axios", icon: <AxiosIcon height={20} width={20} />}
+        ],
+        date: "Enero 2025 - Presente"
+    }
+]
+
 
 export const Projects: React.FC = () => {
-    // Projects data
-    const projects = [
-        {
-            title: "Sistema de Control Escolar",
-            description: "Primer proyecto de CRUD de un sistema de control escolar desarrollado en Php, diseño neumorfístico y MySQL como Base de Datos.",
-            image: Project1img,
-            technologies: [{
-                name: "Php", icon: <PhpIcon height={20} width={20} />}, 
-                {name: "MySQL", icon: <MySQLIcon height={20} width={20} />}
-            ],
-            date: "Enero 2023 - Junio 2023"
-        },
-        {
-            title: "GanaderíaSoft",
-            description: "Gestión y control de ganado a través de un aretado con tecnología RFID.",
-            image: Project2img,
-            technologies: [
-                {name: "Django", icon: <DJangoIcon height={20} width={20} />}, 
-                {name: "Bootstrap", icon: <BootstrapIcon height={20} width={20} />}
-            ],
-            date: "Agosto 2023 - Diciembre 2023"
-        },
-        {
-            title: "GanaderíaSoft Django React",
-            description: "Un proyecto personal basado en mejorar a GanaderiaSoft implementando Django como Backend y React como Frontend, además de implementar Axios para la comunicación con la API.",
-            image: Project3img,
-            technologies: [
-                {name: "Django", icon: <DJangoIcon height={20} width={20} />}, 
-                {name: "React", icon: <ReactIcon height={20} width={20} />}, 
-                {name: "TailwindCSS", icon: <TailwindCSSIcon height={20} width={20} />}, 
-                {name: "Axios", icon: <AxiosIcon height={20} width={20} />}
-            ],
-            date: "Enero 2025 - Presente"
-        }
-    ]
     return (
         <section id="projects">
             <h2><span className="me-2 text-2xl">📄</span><br/>Proyectos</h2>

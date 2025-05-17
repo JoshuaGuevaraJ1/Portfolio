@@ -58,7 +58,7 @@ export default function App() {
   return (
     <ThemeProvider theme={customTheme}>
       <NavBar animation={animation} setAnimation={setAnimation} blurCircles={blurCircles} setBlurCircles={setBlurCircles} grayscale={grayscale} setGrayscale={setGrayscale}/>
-      <main className={`relative min-h-screen overflow-hidden flex-col items-center justify-center px-4 pb-20 ${grayscale ? 'grayscale' : ''} bg-gradient-to-br ${animation ? 'from-blue-400 via-amber-100 to-green-400' : 'from-gray-400 via-gray-200 to-gray-300'} dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 ease-in-out`}>
+      <main className={`relative min-h-screen overflow-hidden flex-col items-center justify-center pb-20 ${grayscale ? 'grayscale' : ''} bg-gradient-to-br ${animation ? 'from-blue-400 via-amber-100 to-green-400' : 'from-gray-400 via-gray-200 to-gray-300'} dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 ease-in-out`}>
 
         {/* Background circles  */}
         {animation && (

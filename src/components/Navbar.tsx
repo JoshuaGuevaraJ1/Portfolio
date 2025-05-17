@@ -43,7 +43,7 @@ export const NavBar: React.FC<NavBarProps> = ({animation, setAnimation, blurCirc
       <NavbarBrand href="#hero">
         Joshua Guevara
       </NavbarBrand>
-      <div className="flex md:order-2">
+      <div className="flex md:order-2 gap-2">
         <button onClick={() => setIsOpenModal(true)} className="text-gray-500 dark:text-gray-400 rounded-lg p-px hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-700"><SettingsIcon  /></button>
         <NavbarToggle />
       </div>

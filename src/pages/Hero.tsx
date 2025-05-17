@@ -8,7 +8,7 @@ import img from '../assets/profile.jpg';
 
 export const Hero: React.FC = () => {
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center mt-22 md:mt-0">
+        <section id="hero" className="min-h-screen flex items-center justify-center mt-20 md:mt-0">
             <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex flex-col lg:w-3/4 md:w-2/3 gap-4">
                     <div className="h-auto">

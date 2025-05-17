@@ -221,8 +221,8 @@ export const customTheme = createTheme({
           "base": "w-full md:block md:w-auto",
           "list": "mt-4 md:border-0 md:pt-0 pt-4 border-t border-gray-300 dark:border-gray-700 flex flex-col md:items-center md:mt-0 md:flex-row md:space-x-8 space-y-1 md:text-sm md:font-medium",
           "hidden": {
-              "on": "transition-all ease-in-out duration-700 opacity-0 md:opacity-100 max-h-0 md:max-h-screen",
-              "off": "transition-all ease-in-out duration-700 opacity-100 max-h-screen"
+              "on": "transition-all ease-in-out duration-500 opacity-0 md:opacity-100 max-h-0 overflow-hidden md:max-h-screen -translate-y-200 md:translate-y-0",
+              "off": "transition-all ease-in-out duration-500 opacity-100 max-h-screen"
           }
       },
       "link": {
