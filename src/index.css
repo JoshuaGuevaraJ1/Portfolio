@@ -27,7 +27,7 @@
   }
   
   html {
-    font-family: "Nunito", sans-serif;
+    font-family: "Varela Round", sans-serif;
     scroll-behavior: smooth;
     
   }
@@ -50,7 +50,7 @@
   }
   
   p {
-    @apply text-gray-700 dark:text-gray-300 ;
+    @apply text-gray-700 dark:text-gray-300 text-lg;
   }
 
   /* Estilo general para la barra de desplazamiento */
@@ -89,5 +89,5 @@
 }
 
 @theme {
-  --font-fira-code: 'Fira Code', monospace;
+  --font-courier: 'Courier Prime', monospace;
 }

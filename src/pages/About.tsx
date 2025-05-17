@@ -40,7 +40,7 @@ export const About: React.FC = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="font-fira-code w-full lg:w-2/4 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/30 rounded-xl overflow-hidden shadow-md">
+                <div className="font-courier w-full lg:w-2/4 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/30 rounded-xl overflow-hidden shadow-md">
                     <div className="bg-gray-900 px-6 py-2 border-b border-gray-700 flex items-center">
                         <div className="flex space-x-2">
                         {['bg-red-500', 'bg-amber-400', 'bg-green-500'].map((color) => (
