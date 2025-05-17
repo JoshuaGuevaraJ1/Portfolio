@@ -5,9 +5,13 @@
 import React from "react";
 
 // Components
-import { Button, HRTrimmed, Label, Textarea, TextInput } from "flowbite-react";
+import { Button, HRTrimmed, Label, Spinner, Textarea, TextInput } from "flowbite-react";
+import { SendEmailIcon } from "../icons/Icons";
 
 export const Contact: React.FC = () => {
+    const [loading, setLoading] = React.useState(false);
+
+
     // Form state
     const [form, setForm] = React.useState({
         nombre: '',
@@ -15,23 +19,51 @@ export const Contact: React.FC = () => {
         mensaje: ''
     });
 
+    const [touched, setTouched] = React.useState({
+        nombre: false,
+        mensaje: false,
+        email: false,
+      });
+
     // Handle form change
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        });
+        const { name, value } = e.target;
+    
+        setForm((prev) => ({
+          ...prev,
+          [name]: value
+        }));
+    
+        // Marcar como tocado
+        if (!touched[name as keyof typeof touched]) {
+          setTouched((prev) => ({
+            ...prev,
+            [name]: true,
+          }));
+        }
     };
 
-    // Convert form data to mailto link
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const validateEmail = (email: string): boolean => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+      const isNombreValid = form.nombre.trim().length > 0;
+      const isMessageValid = form.mensaje.trim().length > 0;
+      const isEmailValid = validateEmail(form.email);
+    
+      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        setLoading(true);
         const subject = encodeURIComponent(`Nuevo mensaje de ${form.nombre}`);
         const body = encodeURIComponent(`Nombre: ${form.nombre}\nCorreo: ${form.email}\n\n${form.mensaje}`);
-        const mailtoLink = `mailto:joguevara84@gmail.com?subject=${subject}&body=${body}`;
-
-        window.location.href = mailtoLink;
-    };
+        
+        setTimeout(() => {
+            window.location.href = `mailto:joguevara84@gmail.com?subject=${subject}&body=${body}`;
+            setLoading(false);
+          }, 500);
+      };
 
     return (
         <section id="contact">
@@ -44,49 +76,55 @@ export const Contact: React.FC = () => {
                         
                         {/* Nombre */}
                         <div>
-                            <Label className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">Nombre</Label>
+                            <Label htmlFor="nombre" className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">Nombre<span className="text-red-600 ms-px">*</span></Label>
                             <TextInput 
+                                id="nombre"
                                 type="text" 
                                 name="nombre" 
                                 placeholder="Tu nombre" 
                                 required
                                 value={form.nombre}
                                 onChange={handleChange}
+                                color={touched.nombre ? isNombreValid ? 'success' : 'failure' : 'gray'}
                             />
                         </div>
     
                         <div>
-                            <Label className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">Correo</Label>
+                            <Label htmlFor="email" className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">Correo<span className="text-red-600 ms-px">*</span></Label>
                             <TextInput 
+                                id="email"
                                 type="email" 
                                 name="email" 
                                 placeholder="tucorreo@ejemplo.com" 
                                 required
                                 value={form.email}
                                 onChange={handleChange}
+                                color={touched.email ? isEmailValid ? 'success' : 'failure' : 'gray'}
                             />
                         </div>
     
                         <div className="md:col-span-2" >
-                            <Label className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">Mensaje</Label>
+                            <Label htmlFor="mensaje" className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">Mensaje<span className="text-red-600 ms-px">*</span></Label>
                             <Textarea 
+                                id="mensaje"
                                 name="mensaje" 
                                 rows={5}
                                 placeholder="Escríbeme algo..." 
                                 required
                                 value={form.mensaje}
                                 onChange={handleChange}
+                                color={touched.mensaje ? isMessageValid ? 'success' : 'failure' : 'gray'}
                             ></Textarea>
                         </div>
     
                         <div className="md:col-span-2 ml-auto" >
-                            <Button type="submit" className='group'>
-                                <span className="inline-block transition-all duration-300 group-hover:translate-x-3 opacity-100 ">
-                                    Enviar mensaje
-                                </span>
-                                <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 -translate-x-full opacity-0 group-hover:-translate-x-13 group-hover:opacity-100">
-                                    📤
-                                </div>
+                            <Button type="submit" className='group' disabled={loading}>
+                                {loading ? (
+                                    <Spinner aria-label="Enviando..." className="transition-all duration-200 ease-in-out mr-2" color="success" size="md" />
+                                ) : (
+                                    <span className="transition-transform duration-300 group-hover:transform group-hover:-skew-x-12 me-2"><SendEmailIcon /></span>
+                                )}
+                                Enviar correo
                             </Button>
                         </div>
                     </form>

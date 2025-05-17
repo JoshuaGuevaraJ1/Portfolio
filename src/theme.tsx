@@ -195,7 +195,6 @@ export const customTheme = createTheme({
       "popup": "border-t"
     }
 },
-
   navbar: {
       "root": {
           "base": "fixed top-0 w-full bg-white/50 z-50 md:px-32 px-6 py-2.5 dark:border-gray-700 dark:bg-gray-800/50 backdrop-blur-2xl",
@@ -246,8 +245,9 @@ export const customTheme = createTheme({
   textarea: {
     "base": "block w-full rounded-lg border p-2.5 text-sm focus:outline-none focus:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
     "colors": {
-      "gray": "border-gray-300/30 bg-white/0 text-gray-700 placeholder-gray-500 focus:border-gray-500/30 focus:ring-gray-100/50 dark:border-gray-500/30 dark:bg-gray-700/0 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-gray-800/30 dark:focus:ring-gray-300/50 ",
-      "info": "border-cyan-500 bg-cyan-50 text-cyan-900 placeholder-cyan-700 focus:border-cyan-500 focus:ring-cyan-500 dark:border-cyan-400 dark:bg-cyan-100 dark:focus:border-cyan-500 dark:focus:ring-cyan-500",
+      "gray": "border-gray-300 bg-white/0 text-gray-700 placeholder-gray-500 focus:border-gray-500 focus:ring-gray-100 dark:border-gray-500 dark:bg-gray-700/0 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-gray-800 dark:focus:ring-gray-300 ",
+      "failure": "border-red-500 bg-red-50/70 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-100/0 dark:text-red-300 dark:focus:border-red-500 dark:focus:ring-red-500",
+          "success": "border-green-500 bg-green-50/70 text-green-900 placeholder-green-700 focus:border-green-500 focus:ring-green-500 dark:border-green-400 dark:bg-green-100/0 dark:text-green-300 dark:focus:border-green-500 dark:focus:ring-green-500"
     },
     "withShadow": {
       "on": "shadow-sm dark:shadow-sm-light",
@@ -275,7 +275,9 @@ export const customTheme = createTheme({
           "lg": "p-4 sm:text-base"
         },
         "colors": {
-          "gray": "border-gray-300/50 bg-white/0 text-gray-700 placeholder-gray-500 focus:border-gray-500/50 focus:ring-gray-100/50 dark:border-gray-500/50 dark:bg-gray-700/0 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-gray-800/50 dark:focus:ring-gray-300/50 ",
+          "gray": "border-gray-300 bg-white/0 text-gray-700 placeholder-gray-500 focus:border-gray-500 focus:ring-gray-100 dark:border-gray-500 dark:bg-gray-700/0 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-gray-800 dark:focus:ring-gray-300 ",
+          "failure": "border-red-500 bg-red-50/70 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-100/0 dark:text-red-300 dark:focus:border-red-500 dark:focus:ring-red-500",
+          "success": "border-green-500 bg-green-50/70 text-green-900 placeholder-green-700 focus:border-green-500 focus:ring-green-500 dark:border-green-400 dark:bg-green-100/0 dark:text-green-300 dark:focus:border-green-500 dark:focus:ring-green-500"
         },
         "withRightIcon": {
           "on": "pr-10",
