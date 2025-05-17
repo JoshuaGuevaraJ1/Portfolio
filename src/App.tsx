@@ -1,7 +1,6 @@
 // App.tsx
 
 // Modules
-import React from "react";
 import { customTheme } from "./theme";
 import { ThemeProvider } from "flowbite-react";
 
@@ -59,16 +58,16 @@ export default function App() {
   return (
     <ThemeProvider theme={customTheme}>
       <NavBar animation={animation} setAnimation={setAnimation} blurCircles={blurCircles} setBlurCircles={setBlurCircles} grayscale={grayscale} setGrayscale={setGrayscale}/>
-      <main className={`relative min-h-screen overflow-hidden flex-col items-center justify-center px-4 pb-20 ${grayscale ? 'grayscale' : ''} bg-gradient-to-br ${animation ? 'from-blue-100 via-amber-200 to-green-200' : 'from-gray-400 via-gray-200 to-gray-300'} dark:from-gray-900 dark:via-gray-800 dark:to-gray-900`}>
+      <main className={`relative min-h-screen overflow-hidden flex-col items-center justify-center px-4 pb-20 ${grayscale ? 'grayscale' : ''} bg-gradient-to-br ${animation ? 'from-blue-400 via-amber-100 to-green-400' : 'from-gray-400 via-gray-200 to-gray-300'} dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 ease-in-out`}>
 
         {/* Background circles  */}
-        (animation && (
+        {animation && (
           <div className="absolute inset-0 z-0 overflow-hidden">
             {circles.map(circle => (
               <div key={circle.id} className={`absolute animate-float ${circle.size} ${circle.position} rounded-full bg-radial ${circle.color} opacity-40 ${blurCircles ? 'blur-2xl': ''}`} style={{ animationDelay: circle.delay }}></div>
             ))}
           </div>
-        ))
+        )}
 
         {/* Main content */}
         <div className="relative z-10 md:px-32 px-6 space-y-20">

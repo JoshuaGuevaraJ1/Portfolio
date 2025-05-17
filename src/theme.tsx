@@ -146,7 +146,7 @@ export const customTheme = createTheme({
     "root": {
       "base": "fixed inset-x-0 top-0 z-50 h-screen overflow-y-auto overflow-x-hidden md:inset-0 md:h-full",
       "show": {
-        "on": "flex ",
+        "on": "flex bg-gray-100/40 dark:bg-black/50",
         "off": "hidden"
       },
       "sizes": {
@@ -216,7 +216,7 @@ export const customTheme = createTheme({
           }
       },
       "brand": {
-          "base": "flex items-center"
+          "base": "flex items-center font-bold text-gray-700 dark:text-gray-400"
       },
       "collapse": {
           "base": "w-full md:block md:w-auto",
@@ -230,7 +230,7 @@ export const customTheme = createTheme({
           "base": "block py-2 pl-3 pr-4 md:p-0 transition-colors duration-700 ease-in-out",
           "active": {
               "on": "bg-primary-700 text-white md:bg-transparent md:text-primary-700 dark:text-white font-black rounded-xl",
-              "off": "text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-white"
+              "off": "text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-gray-400 font-bold dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-white"
           },
           "disabled": {
               "on": "text-gray-400 hover:cursor-not-allowed dark:text-gray-600",

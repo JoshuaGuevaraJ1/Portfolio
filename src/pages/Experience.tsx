@@ -32,7 +32,6 @@ export const Experience: React.FC = () => {
         <section id="experience">
             <h2><span className="me-2 text-2xl">💼</span><br/>Experiencia</h2>
             <HRTrimmed />
-            
 
             <Timeline horizontal>
                 {timelineItems.map((item, index) => (

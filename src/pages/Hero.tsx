@@ -1,5 +1,4 @@
 // Hero.tsx
-"use client";
 
 // // Modules
 import React from 'react';
@@ -19,7 +18,7 @@ export const Hero: React.FC = () => {
                         </p>
                     </div>
                     <div className="relative">
-                        <div className="md:hidden relative bottom-0 right-0 z-0 h-[550px] w-full rounded-2xl bg-cover bg-bottom shadow-md" style={img ? { backgroundImage: `url(${img})` } : {}}>
+                        <div aria-hidden="true" className="md:hidden relative bottom-0 right-0 z-0 h-[550px] w-full rounded-2xl bg-cover bg-bottom shadow-md" style={{ backgroundImage: `url(${img})` }}>
                         </div>
                         <div className="absolute md:relative bottom-0 z-10 p-5 m-6 md:m-0 bg-white/40 dark:bg-gray-800/50 backdrop-blur-2xl rounded-2xl border border-white/50 dark:border-gray-700/50 shadow-md">
                             <h5>🚀 Misión</h5>
@@ -29,7 +28,7 @@ export const Hero: React.FC = () => {
                 </div>
                         
                 <div className="hidden md:block lg:w-1/4 md:w-1/3" >
-                    <div className="h-full rounded-2xl bg-cover bg-center shadow-md" style={img ? { backgroundImage: `url(${img})` } : {}}>
+                    <div aria-hidden="true" className="h-full rounded-2xl bg-cover bg-center shadow-md" style={{ backgroundImage: `url(${img})` }}>
                     </div>
                 </div>
             </div>

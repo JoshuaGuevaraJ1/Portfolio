@@ -1,5 +1,4 @@
 // FooterPage.tsx
-"use client";
 
 // Components
 import { Footer, FooterTitle, FooterLinkGroup, FooterLink, FooterDivider, FooterCopyright, FooterIcon } from "flowbite-react";
@@ -16,8 +15,8 @@ export const FooterPage: React.FC = () => {
                     <div>
                         <FooterTitle title="links" />
                         <FooterLinkGroup col>
-                            <FooterLink href="#">Inicio</FooterLink>
-                            <FooterLink href="#">Sobre mí</FooterLink>
+                            <FooterLink href="#hero">Inicio</FooterLink>
+                            <FooterLink href="#about">Sobre mí</FooterLink>
                         </FooterLinkGroup>
                     </div>
                     <div>

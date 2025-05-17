@@ -5,7 +5,7 @@
 import React from "react";
 
 // Components
-import { DarkThemeToggle, Navbar, NavbarBrand, NavbarCollapse, NavbarLink } from "flowbite-react";
+import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
 
 // Hooks
 import { useIsNavbarItemActive } from "../hooks/IsNavbarItemActive";
@@ -41,17 +41,17 @@ export const NavBar: React.FC<NavBarProps> = ({animation, setAnimation, blurCirc
     <>
     <Navbar border applyTheme={{ root: { bordered: "replace" } }} className={grayscale ? 'grayscale' : ''}>
       <NavbarBrand href="#hero">
-        <span className="text-gray-800 dark:text-gray-200 font-semibold">Joshua Guevara</span>
+        Joshua Guevara
       </NavbarBrand>
       <div className="flex md:order-2">
-        <button onClick={() => setIsOpenModal(true)} className="text-gray-500 dark:text-gray-400 rounded-lg p-2.5 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-700"><SettingsIcon /></button>
-        <DarkThemeToggle />
+        <button onClick={() => setIsOpenModal(true)} className="text-gray-500 dark:text-gray-400 rounded-lg p-px hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-700"><SettingsIcon  /></button>
+        <NavbarToggle />
       </div>
       <NavbarCollapse applyTheme={{ hidden: { on: "replace" } }}>
 
         {/* Map through the items and create NavbarLink components */}
         {items.map((item, index) => (
-          <NavbarLink key={index} href={item.href} active={activeLinks.includes(item.label)} className="text-gray-800 dark:text-gray-200" applyTheme={{ active: { off: "replace" } }}>
+          <NavbarLink key={index} href={item.href} active={activeLinks.includes(item.label)}  applyTheme={{ active: { off: "replace" } }}>
             <span className={`transition-all ${activeLinks.includes(item.label) ? 'text-xl md:text-lg' : ''}`}>{item.name}</span>
           </NavbarLink>
         ))}
