@@ -19,6 +19,58 @@
   .animate-float {
       animation: float 6s ease-in-out infinite;
   }
+
+  @keyframes jumps {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(-5deg);
+    }
+    50% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+  .animate-jumps {
+    animation: jumps 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rotate-once {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spinonce svg {
+    animation: rotate-once 6s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%   { transform: rotate(0deg); }
+    10%  { transform: rotate(14deg); }
+    20%  { transform: rotate(-8deg); }
+    30%  { transform: rotate(14deg); }
+    40%  { transform: rotate(-4deg); }
+    50%  { transform: rotate(10deg); }
+    60%  { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .animate-wave {
+    display: inline-block;
+    animation: wave 2.5s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+
 }
 
 @layer base {

@@ -34,7 +34,7 @@ export const About: React.FC = () => {
                     
                     <div className='flex'>
                         <Button href='https://github.com/JoshuaGuevaraJ1' className='group'>
-                            <i className="animate-jumps"><GitHubIcon /></i>
+                            <i className="animate-jumps group-hover:animate-none"><GitHubIcon /></i>
                             <span className='ms-4 me-auto'>Visitame en GitHub</span>
                             <span className='ms-4 group-hover:translate-x-2 transition-all ease-in-out'><ArrowToRightIcon /></span>
                         </Button>
