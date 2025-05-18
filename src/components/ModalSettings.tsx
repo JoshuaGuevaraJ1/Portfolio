@@ -1,19 +1,20 @@
+import React from "react";
+
 import { Modal, ModalHeader, ModalBody, ToggleSwitch, ModalFooter, Button } from "flowbite-react"
 import { ThemeSelector } from "./ThemeSelector"
 import { CloseIcon } from "../icons/Icons";
+import { useAppSettings } from "../context/AppSettingsContext";
+
+// Context
 
 interface ModalSettingsProps {
     openModal: boolean;
     setOpenModal: (open: boolean) => void;
-    animation: boolean;
-    setAnimation: (animation: boolean) => void;
-    blurCircles: boolean;
-    setBlurCircles: (blurCircles: boolean) => void;
-    grayscale: boolean;
-    setGrayscale: (grayscale: boolean) => void;
 }
 
-export const ModalSettings: React.FC<ModalSettingsProps> = ({openModal, setOpenModal, animation, setAnimation, blurCircles, setBlurCircles, grayscale, setGrayscale}) => {
+const ModalSettingsComponent: React.FC<ModalSettingsProps> = ({openModal, setOpenModal}) => {
+    const { grayscale, setGrayscale, animation, setAnimation, blurCircles, setBlurCircles } = useAppSettings();
+
     return (
         <Modal dismissible show={openModal} onClose={() => setOpenModal(false)} theme={{ content: { inner: grayscale ? 'grayscale' : '' }}} >
         <ModalHeader>Configuraciones</ModalHeader>
@@ -63,3 +64,5 @@ export const ModalSettings: React.FC<ModalSettingsProps> = ({openModal, setOpenM
       </Modal>
     )
 }
+
+export const ModalSettings = React.memo(ModalSettingsComponent);

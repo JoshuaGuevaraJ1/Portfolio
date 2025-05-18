@@ -6,24 +6,19 @@ import React from "react";
 
 // Components
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
-
-// Hooks
-import { useIsNavbarItemActive } from "../hooks/IsNavbarItemActive";
 import { SettingsIcon } from "../icons/Icons";
 import { ModalSettings } from "./ModalSettings";
 
-interface NavBarProps {
-  animation: boolean;
-  setAnimation: (animation: boolean) => void;
-  blurCircles: boolean;
-  setBlurCircles: (blurCircles: boolean) => void;
-  grayscale: boolean;
-  setGrayscale: (grayscale: boolean) => void;
-}
+// Hooks
+import { useIsNavbarItemActive } from "../hooks/IsNavbarItemActive";
 
+// Context
+import { useAppSettings } from "../context/AppSettingsContext";
 
-export const NavBar: React.FC<NavBarProps> = ({animation, setAnimation, blurCircles, setBlurCircles, grayscale, setGrayscale}) => {
+const NavBarComponent: React.FC = () => {
   const activeLinks = useIsNavbarItemActive();
+
+  const { grayscale } = useAppSettings();
 
   const [isOpenModal, setIsOpenModal] = React.useState(false);
 
@@ -50,14 +45,16 @@ export const NavBar: React.FC<NavBarProps> = ({animation, setAnimation, blurCirc
       <NavbarCollapse applyTheme={{ hidden: { on: "replace" } }}>
 
         {/* Map through the items and create NavbarLink components */}
-        {items.map((item, index) => (
-          <NavbarLink key={index} href={item.href} active={activeLinks.includes(item.label)}  applyTheme={{ active: { off: "replace" } }}>
+        {items.map((item) => (
+          <NavbarLink key={item.label} href={item.href} active={activeLinks.includes(item.label)}  applyTheme={{ active: { off: "replace" } }}>
             <span className={`transition-all ${activeLinks.includes(item.label) ? 'text-xl md:text-lg' : ''}`}>{item.name}</span>
           </NavbarLink>
         ))}
       </NavbarCollapse>
     </Navbar>
-    <ModalSettings openModal={isOpenModal} setOpenModal={setIsOpenModal} animation={animation} setAnimation={setAnimation} grayscale={grayscale} setGrayscale={setGrayscale} blurCircles={blurCircles} setBlurCircles={setBlurCircles}/>
+    <ModalSettings openModal={isOpenModal} setOpenModal={setIsOpenModal} />
     </>
   );
 };
+
+export const NavBar = React.memo(NavBarComponent);

@@ -6,6 +6,7 @@ import { ThemeProvider } from "flowbite-react";
 
 // Components
 import { NavBar } from "./components/Navbar";
+import { BackgroundCircle } from "./components/BackgroundCircle";
 
 // Pages
 import { Hero } from "./pages/Hero";
@@ -15,56 +16,70 @@ import { Projects } from "./pages/Projects";
 import { Experience } from "./pages/Experience";
 import { Contact } from "./pages/Contact";
 import { FooterPage } from "./components/FooterPage";
-import { usePersistentState } from "./hooks/usePersistentState";
 
-// App component
-export default function App() {
-  // Circles data for background animation
-  const circles = [
-    {
-      id: 1,
-      size: 'w-[300px] h-[300px]',
-      position: 'top-[10%] left-[15%]',
-      color: 'from-blue-400 to-blue-700',
-      delay: '0s',
-    },
-    {
-      id: 2,
-      size: 'w-[500px] h-[500px]',
-      position: 'top-[40%] left-[65%]',
-      color: 'from-amber-400 to-amber-700',
-      delay: '2s',
-    },
-    {
-      id: 3,
-      size: 'w-[100px] h-[100px]',
-      position: 'top-[70%] left-[25%]',
-      color: 'from-lime-300 to-lime-400',
-      delay: '3s',
-    },
-    {
-      id: 4,
-      size: 'w-[300px] h-[300px]',
-      position: 'top-[90%] left-[75%]',
-      color: 'from-lime-300 to-lime-400',
-      delay: '2s',
-    }
-  ]
+// Context
+import { AppSettingsProvider, useAppSettings } from "./context/AppSettingsContext";
 
-  const [animation, setAnimation] = usePersistentState('animation', true)
-  const [blurCircles, setBlurCircles] = usePersistentState('blurCircles', true)
-  const [grayscale, setGrayscale] = usePersistentState('grayscale', true)
+// Circles data for background animation
+const circles = [
+  {
+    id: 1,
+    size: 'w-[300px] h-[300px]',
+    position: 'top-[10%] left-[15%]',
+    color: 'from-blue-400 to-blue-700',
+    delay: '0s',
+  },
+  {
+    id: 2,
+    size: 'w-[500px] h-[500px]',
+    position: 'top-[40%] left-[65%]',
+    color: 'from-amber-400 to-amber-700',
+    delay: '2s',
+  },
+  {
+    id: 3,
+    size: 'w-[100px] h-[100px]',
+    position: 'top-[70%] left-[25%]',
+    color: 'from-lime-300 to-lime-400',
+    delay: '3s',
+  },
+  {
+    id: 4,
+    size: 'w-[300px] h-[300px]',
+    position: 'top-[90%] left-[75%]',
+    color: 'from-lime-300 to-lime-400',
+    delay: '2s',
+  }
+]
+
+function AppContent() {
+  const { animation, blurCircles, grayscale } = useAppSettings();
 
   return (
-    <ThemeProvider theme={customTheme}>
-      <NavBar animation={animation} setAnimation={setAnimation} blurCircles={blurCircles} setBlurCircles={setBlurCircles} grayscale={grayscale} setGrayscale={setGrayscale}/>
-      <main className={`relative min-h-screen overflow-hidden flex-col items-center justify-center pb-20 ${grayscale ? 'grayscale' : ''} bg-gradient-to-br ${animation ? 'from-blue-400 via-amber-100 to-green-400' : 'from-gray-400 via-gray-200 to-gray-300'} dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 ease-in-out`}>
-
-        {/* Background circles  */}
+    <>
+      <NavBar />
+      <main
+        className={`
+          relative min-h-screen overflow-hidden flex-col items-center justify-center pb-20
+          ${grayscale ? 'grayscale' : ''}
+          bg-gradient-to-br
+          ${animation ? 'from-blue-400 via-amber-100 to-green-400' : 'from-gray-400 via-gray-200 to-gray-300'}
+          dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+          transition-colors duration-500 ease-in-out
+        `}
+      >
+        {/* Background circles */}
         {animation && (
           <div className="absolute inset-0 z-0 overflow-hidden">
-            {circles.map(circle => (
-              <div key={circle.id} className={`absolute animate-float ${circle.size} ${circle.position} rounded-full bg-radial ${circle.color} opacity-40 ${blurCircles ? 'blur-2xl': ''}`} style={{ animationDelay: circle.delay }}></div>
+            {circles.map((circle) => (
+              <BackgroundCircle
+                key={circle.id}
+                size={circle.size}
+                position={circle.position}
+                color={circle.color}
+                delay={circle.delay}
+                blurCircles={blurCircles}
+              />
             ))}
           </div>
         )}
@@ -81,8 +96,18 @@ export default function App() {
 
         {/* Footer */}
         <FooterPage />
-        
       </main>
-    </ThemeProvider>
+    </>
+  );
+}
+
+// App component
+export default function App() {
+  return (
+    <AppSettingsProvider>
+      <ThemeProvider theme={customTheme}>
+        <AppContent />
+      </ThemeProvider>
+    </AppSettingsProvider>
   );
 }

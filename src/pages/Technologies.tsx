@@ -30,8 +30,8 @@ export const Technologies: React.FC = () => {
             <HRTrimmed />
 
             <div className='flex flex-wrap gap-6 p-8 justify-center'>
-                {technologies.map((tech, index) => (
-                    <Badge key={index} icon={() => tech.icon}>{tech.name}</Badge>
+                {technologies.map((tech) => (
+                    <Badge key={tech.name} icon={() => tech.icon}>{tech.name}</Badge>
                 ))}
             </div>
 

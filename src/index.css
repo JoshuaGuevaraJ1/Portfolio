@@ -10,7 +10,7 @@
       transform: translateY(0px) scale(1);
     }
     50% {
-      transform: translateY(-500px) scale(3);
+      transform: translateY(-400px) scale(1.5);
     }
     100% {
       transform: translateY(0px) scale(1);
