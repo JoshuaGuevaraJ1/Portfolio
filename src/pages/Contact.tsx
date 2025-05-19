@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
             <HRTrimmed />
 
             <p className='text-gray-900 dark:text-gray-100 mb-4'>Siempre hay algo nuevo que aprender y algo nuevo que emprender, o simplemente envíame un saludo.</p>
-                <div className="w-full mx-auto rounded-xl p-8 border border-white dark:border-gray-700/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-2xl shadow-md">
+                <div className="w-full mx-auto rounded-xl p-8 border border-white dark:border-gray-700/50 bg-white/50 dark:bg-gray-800/50 shadow-md">
                     <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                         
                         {/* Nombre */}

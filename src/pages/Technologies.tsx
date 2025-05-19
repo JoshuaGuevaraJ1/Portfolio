@@ -29,7 +29,7 @@ export const Technologies: React.FC = () => {
             <h2><span className="me-2 text-2xl">🌐</span><br/>Tecnologías</h2>
             <HRTrimmed />
 
-            <div className='flex flex-wrap gap-6 p-8 justify-center'>
+            <div className='flex flex-wrap gap-6 p-8 justify-center rounded-2xl'>
                 {technologies.map((tech) => (
                     <Badge key={tech.name} icon={() => tech.icon}>{tech.name}</Badge>
                 ))}

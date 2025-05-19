@@ -13,7 +13,7 @@ interface ModalSettingsProps {
 }
 
 const ModalSettingsComponent: React.FC<ModalSettingsProps> = ({openModal, setOpenModal}) => {
-    const { grayscale, setGrayscale, animation, setAnimation, blurCircles, setBlurCircles } = useAppSettings();
+    const { grayscale, setGrayscale, animation, setAnimation } = useAppSettings();
 
     return (
         <Modal dismissible show={openModal} onClose={() => setOpenModal(false)} theme={{ content: { inner: grayscale ? 'grayscale' : '' }}} >
@@ -26,13 +26,6 @@ const ModalSettingsComponent: React.FC<ModalSettingsProps> = ({openModal, setOpe
                         <h6>✨ Animaciones de fondo</h6>
                         <div className='ml-auto'>
                             <ToggleSwitch checked={animation} onChange={setAnimation} sizing='lg' />
-                        </div>
-                    </div>
-
-                  <div className='flex items-center'>
-                        <h6>🔵 Circulos de fondo desvanecidos</h6>
-                        <div className='ml-auto'>
-                            <ToggleSwitch checked={blurCircles} onChange={setBlurCircles} sizing='lg' disabled={!animation} />
                         </div>
                     </div>
                 </div>

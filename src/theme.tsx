@@ -5,8 +5,8 @@ export const customTheme = createTheme({
     "root": {
         "base": "flex h-fit items-center gap-1 font-semibold transition-all duration-500 ease-in-out hover:scale-120 hover:-translate-y-2 p-2 border border-white/50 dark:border-gray-700/50",
         "color": {
-          "info": "bg-gray-100/50 text-gray-800 hover:bg-gray-200/50 dark:bg-gray-700/50 dark:text-gray-300 dark:hover:bg-gray-600/50 backdrop-blur-2xl",
-          "gray": "bg-gray-100/50 text-gray-800 hover:bg-gray-200/50 dark:bg-gray-700/50 dark:text-gray-300 dark:hover:bg-gray-600/50 backdrop-blur-2xl",
+          "info": "bg-gray-100/50 text-gray-800 hover:bg-gray-200/50 dark:bg-gray-700/50 dark:text-gray-300 dark:hover:bg-gray-600/50",
+          "gray": "bg-gray-100/50 text-gray-800 hover:bg-gray-200/50 dark:bg-gray-700/50 dark:text-gray-300 dark:hover:bg-gray-600/50",
           "failure": "bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-200 dark:text-red-900 dark:hover:bg-red-300",
           "success": "bg-green-100 text-green-800 hover:bg-green-200 dark:bg-green-200 dark:text-green-900 dark:hover:bg-green-300",
           "warning": "bg-yellow-100 text-yellow-800 hover:bg-yellow-200 dark:bg-yellow-200 dark:text-yellow-900 dark:hover:bg-yellow-300",
@@ -38,7 +38,7 @@ export const customTheme = createTheme({
       }
   },
   button: {
-    "base": "relative overflow-hidden flex items-center justify-center rounded-lg text-center font-medium focus:outline-none focus:ring-1 shadow-md backdrop-blur-2xl transition-colors duration-500",
+    "base": "relative overflow-hidden flex items-center justify-center rounded-lg text-center font-medium focus:outline-none focus:ring-1 shadow-md transition-colors duration-500",
     "disabled": "pointer-events-none opacity-50",
     "fullSized": "w-full",
     "grouped": "rounded-none border-l-0 first:rounded-s-lg first:border-l last:rounded-e-lg focus:ring-2",
@@ -85,7 +85,7 @@ export const customTheme = createTheme({
   },
   footer : {
     "root": {
-      "base": "w-full rounded-2xl border border-white/30 dark:border-gray-700/30 bg-bluegray/50 backdrop-blur-2xl shadow-md md:flex md:items-center md:justify-between dark:bg-gray-800/50",
+      "base": "relative w-full mt-8 rounded-2xl border border-white/30 dark:border-gray-700/30 bg-bluegray/50 shadow-md md:flex md:items-center md:justify-between dark:bg-gray-800/50",
       "container": "w-full p-6",
       "bgDark": "bg-gray-800"
     },
@@ -123,7 +123,7 @@ export const customTheme = createTheme({
       "base": "my-0 h-px border-0 bg-gray-200 dark:bg-gray-700"
     },
     "trimmed": {
-      "base": "mx-auto my-4 h-1 w-[80%] rounded border-0 bg-gray-800/20 md:my-4 dark:bg-gray-400/20 backdrop-blur-2xl"
+      "base": "mx-auto my-4 h-1 w-[80%] rounded border-0 bg-gray-800/20 md:my-4 dark:bg-gray-400/20"
     },
     "icon": {
       "base": "inline-flex w-full items-center justify-center",
@@ -312,7 +312,7 @@ export const customTheme = createTheme({
       },
       "content": {
         "root": {
-          "base": "p-4 me-0 md:me-4 md:ms-0 ms-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-2xl rounded-2xl border border-white/30 dark:border-gray-700/30 shadow-md",
+          "base": "p-4 me-0 md:me-4 md:ms-0 ms-3 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-white/30 dark:border-gray-700/30 shadow-md",
           "horizontal": "mt-3 sm:pr-8",
           "vertical": ""
         },
@@ -331,12 +331,12 @@ export const customTheme = createTheme({
         "line": "hidden h-0.5 w-full bg-gray-500/20 sm:flex dark:bg-gray-500/50",
         "marker": {
           "base": {
-            "horizontal": "absolute -left-1.5 h-3 w-3 rounded-full border border-white/30 bg-gray-400/50 dark:border-gray-500/30 dark:bg-gray-500/50 backdrop-blur-2xl",
-            "vertical": "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white/30 bg-gray-500/50 dark:border-gray-200/30 dark:bg-gray-500/50 backdrop-blur-2xl"
+            "horizontal": "absolute -left-1.5 h-3 w-3 rounded-full border border-white/30 bg-gray-400/50 dark:border-gray-500/30 dark:bg-gray-500/50",
+            "vertical": "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white/30 bg-gray-500/50 dark:border-gray-200/30 dark:bg-gray-500/50"
           },
           "icon": {
             "base": "h-3 w-3 text-primary-600 dark:text-primary-300",
-            "wrapper": "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-400/50 ring-1 ring-gray-500 dark:bg-gray-500/50 dark:ring-gray-500 backdrop-blur-2xl"
+            "wrapper": "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-400/50 ring-1 ring-gray-500 dark:bg-gray-500/50 dark:ring-gray-500"
           }
         },
         "vertical": ""

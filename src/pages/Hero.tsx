@@ -8,7 +8,7 @@ import img from '../assets/profile.jpg';
 
 export const Hero: React.FC = () => {
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center mt-20 md:mt-0">
+        <section id="hero" className="min-h-screen flex items-center justify-center mt-16 md:mt-0">
             <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex flex-col lg:w-3/4 md:w-2/3 gap-4">
                     <div className="h-auto">
@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
                     <div className="relative">
                         <div aria-hidden="true" className="md:hidden relative bottom-0 right-0 z-0 h-[550px] w-full rounded-2xl bg-cover bg-bottom shadow-md" style={{ backgroundImage: `url(${img})` }}>
                         </div>
-                        <div className="absolute md:relative bottom-0 z-10 p-5 m-6 md:m-0 bg-white/40 dark:bg-gray-800/50 backdrop-blur-2xl rounded-2xl border border-white/50 dark:border-gray-700/50 shadow-md">
+                        <div className="absolute md:relative bottom-0 z-10 p-5 m-6 md:m-0 bg-white/40 dark:bg-gray-800/50 md:backdrop-blur-none backdrop-blur-2xl rounded-2xl border border-white/50 dark:border-gray-700/50 shadow-md">
                             <h5>🚀 Misión</h5>
                             <p>Crear interfaces web modernas, accesibles y centradas en el usuario que generen experiencias memorables y eficientes, aplicando buenas prácticas de diseño y desarrollo frontend.</p>
                         </div>

@@ -11,8 +11,6 @@ interface AppSettingsContextProps {
   setGrayscale: (val: boolean) => void;
   animation: boolean;
   setAnimation: (val: boolean) => void;
-  blurCircles: boolean;
-  setBlurCircles: (val: boolean) => void;
 }
 
 const AppSettingsContext = createContext<AppSettingsContextProps | null>(null);
@@ -20,10 +18,9 @@ const AppSettingsContext = createContext<AppSettingsContextProps | null>(null);
 export const AppSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [grayscale, setGrayscale] = usePersistentState("grayscale", false);
   const [animation, setAnimation] = usePersistentState("animation", true);
-  const [blurCircles, setBlurCircles] = usePersistentState("blurCircles", true);
 
   return (
-    <AppSettingsContext.Provider value={{ grayscale, setGrayscale, animation, setAnimation, blurCircles, setBlurCircles }}>
+    <AppSettingsContext.Provider value={{ grayscale, setGrayscale, animation, setAnimation }}>
       {children}
     </AppSettingsContext.Provider>
   );

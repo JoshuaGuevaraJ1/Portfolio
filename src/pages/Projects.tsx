@@ -55,10 +55,10 @@ export const Projects: React.FC = () => {
 
             <div className="space-y-8">
                 {projects.map((project, index) => (
-                    <div key={index} className='w-full rounded-2xl shadow-md overflow-hidden group bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30'>
+                    <div key={index} className='w-full rounded-2xl shadow-md overflow-hidden group bg-white/20 dark:bg-gray-800/30 border border-white/30 dark:border-gray-700/30'>
                         <img src={project.image}
                             alt={`Pantalla de un proyecto de ${project.title}`}
-                            className="w-full mask-b-from-80% md:mask-b-from-40% mask-b-to-100%"
+                            className="w-full mask-b-from-80% md:mask-b-from-40% mask-b-to-100% dark:brightness-80"
                         />
                         <div className="p-4">
                             <div className='flex flex-wrap gap-2 justify-start mb-2'>

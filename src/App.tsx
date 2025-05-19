@@ -53,7 +53,7 @@ const circles = [
 ]
 
 function AppContent() {
-  const { animation, blurCircles, grayscale } = useAppSettings();
+  const { animation, grayscale } = useAppSettings();
 
   return (
     <>
@@ -65,7 +65,7 @@ function AppContent() {
           bg-gradient-to-br
           ${animation ? 'from-blue-400 via-amber-100 to-green-400' : 'from-gray-400 via-gray-200 to-gray-300'}
           dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
-          transition-colors duration-500 ease-in-out
+          transition-colors duration-1000 ease-in-out
         `}
       >
         {/* Background circles */}
@@ -78,7 +78,6 @@ function AppContent() {
                 position={circle.position}
                 color={circle.color}
                 delay={circle.delay}
-                blurCircles={blurCircles}
               />
             ))}
           </div>
@@ -95,7 +94,7 @@ function AppContent() {
         </div>
 
         {/* Footer */}
-        <FooterPage />
+        <div className="mx-2 md:mx-10"><FooterPage /></div>
       </main>
     </>
   );
