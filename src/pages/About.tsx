@@ -34,9 +34,9 @@ export const About: React.FC = () => {
                     
                     <div className='flex'>
                         <Button href='https://github.com/JoshuaGuevaraJ1' className='group'>
-                            <i className="animate-jumps group-hover:animate-none"><GitHubIcon /></i>
+                            <span className="animate-jumps group-hover:animate-none"><GitHubIcon /></span>
                             <span className='ms-4 me-auto'>Visitame en GitHub</span>
-                            <span className='ms-4 group-hover:translate-x-2 transition-all ease-in-out'><ArrowToRightIcon /></span>
+                            <span className='ms-4 group-hover:translate-x-2 transition-transform ease-in-out'><ArrowToRightIcon /></span>
                         </Button>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ export const About: React.FC = () => {
                         <div className="space-y-1 text-gray-300">
                             {cardInfo.map(renderCardInfo)}
                         </div>
-        <Button href={pdf} aria-label="Descargar CV de Joshua Guevara" className="hover:animate-pulse hover:scale-105 mt-8 inline-block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 px-4 rounded-lg shadow transition-all duration-500">
+        <Button href={pdf} aria-label="Descargar CV de Joshua Guevara" className="hover:scale-105 mt-8 inline-block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 px-4 rounded-lg shadow">
           Descargar CV
         </Button>
       </div>
