@@ -5,21 +5,24 @@
 import { Badge, HRTrimmed } from "flowbite-react";
 import { AxiosIcon, BootstrapIcon, CSSIcon, DJangoIcon, GitHubIcon, GitIcon, HTMLIcon, JavaScriptIcon, PhpIcon, PythonIcon, ReactIcon, TailwindCSSIcon, VSCodeIcon } from "../icons/Icons";
 
+// Hooks
+import { useIsVisible } from "../hooks/useIsVisible";
+
 // Array of technologies with their names and icons
 const technologies = [
-    { name: "React", icon: <ReactIcon /> },
-    { name: "TailwindCSS", icon: <TailwindCSSIcon /> },
-    { name: "JavaScript", icon: <JavaScriptIcon /> },
-    { name: "Php", icon: <PhpIcon /> },
-    { name: "DJango", icon: <DJangoIcon /> },
-    { name: "HTML", icon: <HTMLIcon /> },
-    { name: "CSS", icon: <CSSIcon /> },
-    { name: "VSCode", icon: <VSCodeIcon /> },
-    { name: "Bootstrap", icon: <BootstrapIcon /> },
-    { name: "Python", icon: <PythonIcon /> },
-    { name: "Git", icon: <GitIcon /> },
-    { name: "GitHub", icon: <GitHubIcon /> },
-    { name: "Axios", icon: <AxiosIcon /> }
+    { name: "React", icon: <ReactIcon />, delay: 'delay-0' },
+    { name: "TailwindCSS", icon: <TailwindCSSIcon />, delay: 'delay-100' },
+    { name: "JavaScript", icon: <JavaScriptIcon />, delay: 'delay-100'  },
+    { name: "Php", icon: <PhpIcon />, delay: 'delay-200'  },
+    { name: "DJango", icon: <DJangoIcon />, delay: 'delay-300'  },
+    { name: "HTML", icon: <HTMLIcon />, delay: 'delay-400'  },
+    { name: "CSS", icon: <CSSIcon />, delay: 'delay-500'  },
+    { name: "VSCode", icon: <VSCodeIcon />, delay: 'delay-600'  },
+    { name: "Bootstrap", icon: <BootstrapIcon />, delay: 'delay-700'  },
+    { name: "Python", icon: <PythonIcon />, delay: 'delay-800'  },
+    { name: "Git", icon: <GitIcon />, delay: 'delay-900'  },
+    { name: "GitHub", icon: <GitHubIcon />, delay: 'delay-1000'  },
+    { name: "Axios", icon: <AxiosIcon />, delay: 'delay-1100'  }
 ];
 
 
@@ -30,11 +33,23 @@ export const Technologies: React.FC = () => {
             <HRTrimmed />
 
             <div className='flex flex-wrap gap-6 p-8 justify-center rounded-2xl'>
-                {technologies.map((tech) => (
-                    <Badge key={tech.name} icon={() => tech.icon}>{tech.name}</Badge>
+                {technologies.map((tech, index) => (
+                    <Technology key={index} tech={tech} />
                 ))}
             </div>
 
         </section>
     );
 }
+
+type TechnologyType = {
+    name: string;
+    icon: React.ReactNode;
+    delay: string;
+}
+
+const Technology: React.FC<{ tech: TechnologyType }> = ({ tech }) => {
+    const { ref, isVisible } = useIsVisible<HTMLDivElement>({ threshold: 0.1 });
+
+    return <Badge ref={ref} className={isVisible ? `opacity-100 translate-y-0 ${tech.delay}`: `opacity-0 translate-y-30`} icon={() => tech.icon}>{tech.name}</Badge>;
+};

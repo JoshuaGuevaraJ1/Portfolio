@@ -7,10 +7,15 @@ import { Button, HRTrimmed } from "flowbite-react";
 // Components
 import {ArrowToRightIcon, GitHubIcon} from "../icons/Icons";
 
+// Hooks
+import { useIsVisible  } from "../hooks/useIsVisible";
+
 // Assets
 import pdf from "../assets/CV_Joshua.pdf";
 
 export const About: React.FC = () => {
+    const { ref, isVisible } = useIsVisible<HTMLDivElement>({ threshold: 0.2 });
+
     // data for each line of the info card
     const cardInfo = [
         { id: 1, content: "datacard.json", color: "text-white", type: "text" },
@@ -40,7 +45,7 @@ export const About: React.FC = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="font-courier w-full lg:w-2/4 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/30 rounded-xl overflow-hidden shadow-md">
+                <div ref={ref} className={`font-courier w-full lg:w-2/4 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/30 rounded-xl overflow-hidden shadow-md transition-all duration-700 ease-in-out transform ${isVisible ? 'opacity-100 translate-x-0': 'opacity-0 translate-x-20'}`}>
                     <div className="bg-gray-900 px-6 py-2 border-b border-gray-700 flex items-center">
                         <div className="flex space-x-2">
                         {['bg-red-500', 'bg-amber-400', 'bg-green-500'].map((color) => (
@@ -51,30 +56,39 @@ export const About: React.FC = () => {
                     </div>
       
                     <div className="p-6 text-[13px] md:text-lg">
-                        <div className="space-y-1 text-gray-300">
+                        <div className="space-y-1 text-gray-300 overflow-auto">
                             {cardInfo.map(renderCardInfo)}
                         </div>
-        <Button href={pdf} aria-label="Descargar CV de Joshua Guevara" className="hover:scale-105 mt-8 inline-block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 px-4 rounded-lg shadow">
-          Descargar CV
-        </Button>
-      </div>
-    </div>
+                        <Button href={pdf} aria-label="Descargar CV de Joshua Guevara" className="hover:scale-105 mt-8 inline-block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 px-4 rounded-lg shadow">
+                        Descargar CV
+                        </Button>
+                    </div>
+                </div>
             </div>
         </section>
     );
 }
 
-const renderCardInfo = (line: any) => {
+
+type CardInfo = {
+    id: number;
+    content: string;
+    color: string;
+    type?: string;
+    prefix?: string;
+  };
+
+const renderCardInfo = (line: CardInfo) => {
     return (
         <div key={line.id} className="flex">
             <span className="text-blue-400 mr-2">{line.id}</span>
             {line.prefix && (
-                <span className="ms-8 text-purple-400">{line.prefix}</span>
+                <span className="ms-3 md:ms-8 text-purple-400">{line.prefix}</span>
             )}
             {line.type === 'text' ? (
                 <span className={line.color}>{line.content}</span>
             ) : (
-                <span className={`${line.color} ml-2`}>
+                <span className={`${line.color} ms-1 md:ms-2`}>
                     <span>{line.content}</span>
                 </span>
             )}
