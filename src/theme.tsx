@@ -131,7 +131,7 @@ export const customTheme = createTheme({
     "root": {
       "base": "fixed inset-x-0 top-0 z-50 h-screen overflow-y-auto overflow-x-hidden md:inset-0 md:h-full",
       "show": {
-        "on": "flex bg-gray-100/60 dark:bg-black/50",
+        "on": "flex bg-gray-100/40 dark:bg-black/50",
         "off": "hidden"
       },
       "sizes": {
@@ -159,8 +159,8 @@ export const customTheme = createTheme({
       }
     },
     "content": {
-      "base": "relative h-full w-full p-4 md:h-auto",
-      "inner": "relative flex max-h-[90dvh] flex-col rounded-2xl bg-white/50 dark:bg-gray-800/50 shadow-md backdrop-blur-2xl border border-white/30 dark:border-gray-700/30",
+      "base": "relative h-auto w-full p-4",
+      "inner": "relative flex max-h-[90dvh] flex-col rounded-2xl bg-white/30 dark:bg-gray-800/50 shadow-md backdrop-blur-2xl border border-white/30 dark:border-gray-700/30",
     },
     "body": {
       "base": "flex-1 overflow-auto p-6",
