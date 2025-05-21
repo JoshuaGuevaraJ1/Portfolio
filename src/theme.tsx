@@ -70,7 +70,7 @@ export const customTheme = createTheme({
   },
   footer : {
     "root": {
-      "base": "relative w-full mt-8 rounded-2xl border border-white/30 dark:border-gray-700/30 bg-bluegray/50 shadow-md md:flex md:items-center md:justify-between dark:bg-gray-800/50",
+      "base": "relative w-full mt-8 rounded-2xl border border-white dark:border-gray-700 bg-white/50 shadow-md md:flex md:items-center md:justify-between dark:bg-gray-800/50",
       "container": "w-full p-6",
       "bgDark": "bg-gray-800"
     },
@@ -131,7 +131,7 @@ export const customTheme = createTheme({
     "root": {
       "base": "fixed inset-x-0 top-0 z-50 h-screen overflow-y-auto overflow-x-hidden md:inset-0 md:h-full",
       "show": {
-        "on": "flex bg-gray-100/40 dark:bg-black/50",
+        "on": "flex bg-gray-100/60 dark:bg-black/50",
         "off": "hidden"
       },
       "sizes": {
@@ -160,7 +160,7 @@ export const customTheme = createTheme({
     },
     "content": {
       "base": "relative h-full w-full p-4 md:h-auto",
-      "inner": "relative flex max-h-[90dvh] flex-col rounded-2xl bg-white/30 dark:bg-gray-700/30 shadow-md backdrop-blur-2xl border border-white/30 dark:border-gray-700/30",
+      "inner": "relative flex max-h-[90dvh] flex-col rounded-2xl bg-white/50 dark:bg-gray-800/50 shadow-md backdrop-blur-2xl border border-white/30 dark:border-gray-700/30",
     },
     "body": {
       "base": "flex-1 overflow-auto p-6",
@@ -182,7 +182,7 @@ export const customTheme = createTheme({
 },
   navbar: {
       "root": {
-          "base": "fixed top-0 w-full bg-white/50 z-50 md:px-32 px-6 py-2.5 dark:border-gray-700 dark:bg-gray-800/50 backdrop-blur-2xl",
+          "base": "fixed top-0 w-full bg-white/50 z-50 md:px-32 px-6 py-2.5 dark:border-gray-700 dark:bg-gray-800/50 backdrop-blur-lg",
           "rounded": {
               "on": "rounded-b-2xl",
               "off": ""
