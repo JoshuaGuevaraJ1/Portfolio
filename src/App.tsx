@@ -38,8 +38,8 @@ const circles = [
   },
   {
     id: 3,
-    size: 'w-[100px] h-[100px]',
-    position: 'top-[70%] left-[25%]',
+    size: 'w-[400px] h-[400px]',
+    position: 'top-[25%] left-[5%]',
     color: 'from-lime-300 to-lime-400',
     delay: '3s',
   },

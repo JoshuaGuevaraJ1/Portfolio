@@ -182,7 +182,7 @@ export const customTheme = createTheme({
 },
   navbar: {
       "root": {
-          "base": "fixed top-0 w-full bg-white/50 z-50 md:px-32 px-6 py-2.5 dark:border-gray-700 dark:bg-gray-800/50 backdrop-blur-lg",
+          "base": "fixed top-0 w-full bg-white/50 z-50 md:px-32 px-6 py-2.5 dark:bg-gray-800/50 backdrop-blur-lg",
           "rounded": {
               "on": "rounded-b-2xl",
               "off": ""

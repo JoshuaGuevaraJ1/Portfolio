@@ -49,7 +49,11 @@ type TechnologyType = {
 }
 
 const Technology: React.FC<{ tech: TechnologyType }> = ({ tech }) => {
-    const { ref, isVisible } = useIsVisible<HTMLDivElement>({ threshold: 0.1 });
+    const { ref, isVisible } = useIsVisible<HTMLDivElement>({ threshold: 0.05 });
 
-    return <Badge ref={ref} className={isVisible ? `opacity-100 translate-y-0 ${tech.delay}`: `opacity-0 translate-y-30`} icon={() => tech.icon}>{tech.name}</Badge>;
+    return (
+        <div className={isVisible ? `transition-all transform ease-in-out duration-500 opacity-100 translate-y-0 ${tech.delay}`: `opacity-0 translate-y-10`}>
+            <Badge ref={ref} icon={() => tech.icon}>{tech.name}</Badge>
+        </div>
+    )
 };
