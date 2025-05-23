@@ -1,7 +1,7 @@
 // Projects.tsx
 "use client";
 
-// Components
+import React from "react";
 import { Badge, HRTrimmed } from "flowbite-react";
 import {
   AxiosIcon,
@@ -29,19 +29,18 @@ const projects = [
       "Primer proyecto de CRUD de un sistema de control escolar desarrollado en Php, diseño neumorfístico y MySQL como Base de Datos.",
     image: Project1img,
     technologies: [
-      { name: "Php", icon: <PhpIcon height={20} width={20} /> },
-      { name: "MySQL", icon: <MySQLIcon height={20} width={20} /> },
+      { name: "Php", icon: <PhpIcon height={20} width={20} />, delay: "delay-0" },
+      { name: "MySQL", icon: <MySQLIcon height={20} width={20} />, delay: "delay-100" },
     ],
     date: "Enero 2023 - Junio 2023",
   },
   {
     title: "GanaderíaSoft",
-    description:
-      "Gestión y control de ganado a través de un aretado con tecnología RFID.",
+    description: "Gestión y control de ganado a través de un aretado con tecnología RFID.",
     image: Project2img,
     technologies: [
-      { name: "Django", icon: <DJangoIcon height={20} width={20} /> },
-      { name: "Bootstrap", icon: <BootstrapIcon height={20} width={20} /> },
+      { name: "Django", icon: <DJangoIcon height={20} width={20} />, delay: "delay-0" },
+      { name: "Bootstrap", icon: <BootstrapIcon height={20} width={20} />, delay: "delay-100" },
     ],
     date: "Agosto 2023 - Diciembre 2023",
   },
@@ -51,10 +50,10 @@ const projects = [
       "Un proyecto personal basado en mejorar a GanaderiaSoft implementando Django como Backend y React como Frontend, además de implementar Axios para la comunicación con la API.",
     image: Project3img,
     technologies: [
-      { name: "Django", icon: <DJangoIcon height={20} width={20} /> },
-      { name: "React", icon: <ReactIcon height={20} width={20} /> },
-      { name: "TailwindCSS", icon: <TailwindCSSIcon height={20} width={20} /> },
-      { name: "Axios", icon: <AxiosIcon height={20} width={20} /> },
+      { name: "Django", icon: <DJangoIcon height={20} width={20} />, delay: "delay-0" },
+      { name: "React", icon: <ReactIcon height={20} width={20} />, delay: "delay-100" },
+      { name: "TailwindCSS", icon: <TailwindCSSIcon height={20} width={20} />, delay: "delay-200" },
+      { name: "Axios", icon: <AxiosIcon height={20} width={20} />, delay: "delay-300" },
     ],
     date: "Enero 2025 - Presente",
   },
@@ -85,6 +84,7 @@ type Project = {
     technologies: {
         name: string;
         icon: React.ReactNode;
+        delay: string;
     }[];
     date: string;
 };
@@ -106,11 +106,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         />
         <div className="p-4">
             <div className="flex flex-wrap gap-2 justify-start mb-2">
-            {project.technologies.map((tech, i) => (
-                <Badge key={i} icon={() => tech.icon}>
-                {tech.name}
-                </Badge>
-            ))}
+                {project.technologies.map((tech, i) => (
+                    <BadgeVisible key={i} name={tech.name} icon={tech.icon} delay={tech.delay} />
+                ))}
             </div>
             <h3 className="text-xl font-bold text-gray-700 dark:text-gray-100">{project.title}</h3>
             <h4 className="text-sm text-gray-600 dark:text-gray-300 italic">
@@ -121,5 +119,24 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         </div>
     );
 };
-  
-  
+
+type BadgeVisibleProps = {
+  name: string;
+  icon: React.ReactNode;
+  delay: string;
+};
+
+const BadgeVisible: React.FC<BadgeVisibleProps> = ({ name, icon, delay }) => {
+  const { ref, isVisible } = useIsVisible<HTMLDivElement>({ threshold: 0.1 });
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-500 ease-in-out transform ${
+        isVisible ? `opacity-100 translate-y-0 ${delay}` : "opacity-0 translate-y-8"
+      }`}
+    >
+      <Badge icon={() => icon}>{name}</Badge>
+    </div>
+  );
+};

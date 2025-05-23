@@ -46,7 +46,7 @@ const ModalSettingsComponent: React.FC<ModalSettingsProps> = ({openModal, setOpe
 
     return (
         <Modal
-            dismissible
+            dismissible popup
             show={true}
             onClose={() => setOpenModal(false)}
             theme={{
@@ -57,7 +57,7 @@ const ModalSettingsComponent: React.FC<ModalSettingsProps> = ({openModal, setOpe
         >
             <ModalHeader>Configuraciones</ModalHeader>
             <ModalBody>
-                <div className="overflow-auto space-y-2">
+                <div className="space-y-2 overflow-hidden">
                     <div className="border border-white/50 dark:border-gray-600/50 p-3 rounded-2xl space-y-2">
                         <h4 className="font-semibold text-gray-500 dark:text-gray-100 text-lg">Efectos Visuales</h4>
                         <div className={`flex items-center transition-all ease-in-out duration-500 ${animate ? 'opacity-100 translate-y-0 delay-500':'opacity-0 translate-y-8'}`}>
